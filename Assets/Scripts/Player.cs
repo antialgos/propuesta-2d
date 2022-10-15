@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
+    public GameObject losePanel;
+
     public Text healthDisplay;
     public float speed;
     private float input;
@@ -49,6 +52,7 @@ public class Player : MonoBehaviour
         healthDisplay.text = health.ToString();
 
         if(health <= 0) {
+            losePanel.SetActive(true);
             Destroy(gameObject);
         }
     }
