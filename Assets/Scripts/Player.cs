@@ -14,12 +14,14 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rb;
     Animator anim;
+    AudioSource source;
 
     public int health;
 
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         healthDisplay.text = health.ToString();
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
     }
 
     public void TakeDamage(int damageAmount) {
+        source.Play();
         health -= damageAmount;
         healthDisplay.text = health.ToString();
 
