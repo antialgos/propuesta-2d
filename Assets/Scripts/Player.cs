@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
 
     public GameObject losePanel;
+    public Text timer;
 
     public Text healthDisplay;
     public float speed;
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
 
         if(health <= 0) {
             losePanel.SetActive(true);
+            Destroy(timer);
             Destroy(gameObject);
         }
     }
